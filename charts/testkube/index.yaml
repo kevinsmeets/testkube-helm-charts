@@ -1,0 +1,195 @@
+apiVersion: v1
+entries:
+  api-server:
+  - apiVersion: v2
+    appVersion: 0.11.16
+    created: "2025-04-14T11:51:18.214916766+02:00"
+    description: A Helm chart for Api-server
+    digest: 8de0b1318a5ec1138e0d57c0a589552cb04ef1308a3b2a3c051b4e341c0976a6
+    name: api-server
+    type: application
+    urls:
+    - https://github.com/kevinsmeets/testkube-helm-charts/charts/testkube/testkube-2.1.216.tgz/charts/api-server-0.11.16.tgz
+    version: 0.11.16
+  common:
+  - annotations:
+      category: Infrastructure
+    apiVersion: v2
+    appVersion: 0.1.0
+    created: "2025-04-14T11:51:18.215045648+02:00"
+    description: A Library Helm Chart for definitions that can be shared by Helm templates
+      in other charts.
+    digest: 99b2f69c8d5100575f33522d86a160b243b2fc0c91effc3282ca761e3a00398c
+    home: https://github.com/kubeshop/helm-charts/tree/main/charts/common
+    keywords:
+    - common
+    - helper
+    - template
+    - function
+    - testkube
+    maintainers:
+    - name: Testkube
+      url: https://github.com/kubeshop/testkube
+    name: common
+    sources:
+    - https://github.com/kubeshop/helm-charts
+    - https://testkube.io/
+    type: library
+    urls:
+    - https://github.com/kevinsmeets/testkube-helm-charts/charts/testkube/testkube-2.1.216.tgz/charts/common-0.1.0.tgz
+    version: 0.1.0
+  global:
+  - annotations:
+      category: Infrastructure
+    apiVersion: v2
+    appVersion: 0.1.2
+    created: "2025-04-14T11:51:18.21514895+02:00"
+    description: A Library Helm Chart for definitions that can be shared by Helm templates
+      in other charts.
+    digest: 02bfec7b6ca21c83ac8ac1aa237660e7535cdc034528d8ef409b5e21d6f21edf
+    home: https://github.com/kubeshop/helm-charts/tree/main/charts/global
+    keywords:
+    - global
+    - helper
+    - template
+    - function
+    - testkube
+    maintainers:
+    - name: Testkube
+      url: https://github.com/kubeshop/testkube
+    name: global
+    sources:
+    - https://github.com/kubeshop/helm-charts
+    - https://testkube.io/
+    type: library
+    urls:
+    - https://github.com/kevinsmeets/testkube-helm-charts/charts/testkube/testkube-2.1.216.tgz/charts/global-0.1.3.tgz
+    version: 0.1.3
+  mongodb:
+  - annotations:
+      category: Database
+      images: |
+        - name: kubectl
+          image: docker.io/bitnami/kubectl:1.32.3-debian-12-r2
+        - name: mongodb
+          image: docker.io/bitnami/mongodb:8.0.6-debian-12-r1
+        - name: mongodb-exporter
+          image: docker.io/bitnami/mongodb-exporter:0.44.0-debian-12-r1
+        - name: nginx
+          image: docker.io/bitnami/nginx:1.27.4-debian-12-r7
+        - name: os-shell
+          image: docker.io/bitnami/os-shell:12-debian-12-r40
+      licenses: Apache-2.0
+      tanzuCategory: service
+    apiVersion: v2
+    appVersion: 8.0.6
+    created: "2025-04-14T11:51:18.218786358+02:00"
+    dependencies:
+    - name: common
+      repository: oci://registry-1.docker.io/bitnamicharts
+      tags:
+      - bitnami-common
+      version: 2.x.x
+    description: MongoDB(R) is a relational open source NoSQL database. Easy to use,
+      it stores data in JSON-like documents. Automated scalability and high-performance.
+      Ideal for developing cloud native applications.
+    digest: 96e3abf621d1228f6f234b474d612eefd91ed97d46f1e7f06549fc20663cea01
+    home: https://bitnami.com
+    icon: https://dyltqmyl993wv.cloudfront.net/assets/stacks/mongodb/img/mongodb-stack-220x234.png
+    keywords:
+    - mongodb
+    - database
+    - nosql
+    - cluster
+    - replicaset
+    - replication
+    maintainers:
+    - name: Broadcom, Inc. All Rights Reserved.
+      url: https://github.com/bitnami/charts
+    name: mongodb
+    sources:
+    - https://github.com/bitnami/charts/tree/main/bitnami/mongodb
+    urls:
+    - https://github.com/kevinsmeets/testkube-helm-charts/charts/testkube/testkube-2.1.216.tgz/charts/mongodb-16.5.0.tgz
+    version: 16.5.0
+  testkube:
+  - apiVersion: v2
+    created: "2025-04-14T11:51:18.214592383+02:00"
+    dependencies:
+    - condition: testkube-operator.enabled
+      name: testkube-operator
+      repository: file://../testkube-operator
+      version: 2.1.140
+    - condition: mongodb.enabled
+      name: mongodb
+      repository: https://charts.bitnami.com/bitnami
+      version: 13.10.1
+    - condition: testkube-api.nats.enabled
+      name: nats
+      repository: file://./charts/nats
+      version: 1.2.6-3
+    - name: testkube-api
+      repository: file://../testkube-api
+      version: 2.1.140
+    - condition: global.features.logsV2
+      name: testkube-logs
+      repository: file://../testkube-logs
+      version: 0.2.0
+    - name: global
+      repository: file://../global
+      version: 0.1.3
+    description: Testkube is an open-source platform that simplifies the deployment
+      and management of automated testing infrastructure.
+    digest: b26f42f4a72626c0cfdabc54e9b4118ee97aa2089eabcee90535fd0fe1fcdb37
+    name: testkube
+    type: application
+    urls:
+    - https://github.com/kevinsmeets/testkube-helm-charts/charts/testkube/testkube-2.1.216.tgz/testkube-2.1.216.tgz
+    version: 2.1.216
+  testkube-api:
+  - apiVersion: v2
+    appVersion: 2.1.140
+    created: "2025-04-14T11:51:18.220625245+02:00"
+    dependencies:
+    - name: global
+      repository: file://../global
+      version: 0.1.3
+    description: A Helm chart for Testkube api
+    digest: f69227d1155493155441e20268a3e9667a27aa4a8d2d09b559bc4786ac2bfaa6
+    name: testkube-api
+    type: application
+    urls:
+    - https://github.com/kevinsmeets/testkube-helm-charts/charts/testkube/testkube-2.1.216.tgz/charts/testkube-api-2.1.140.tgz
+    version: 2.1.140
+  testkube-logs:
+  - apiVersion: v2
+    appVersion: 1.0.0
+    created: "2025-04-14T11:51:18.221044037+02:00"
+    dependencies:
+    - name: global
+      repository: file://../global
+      version: 0.1.2
+    description: A Helm chart for Kubernetes
+    digest: 72a08d26c3f38c37ca128b77234704472e36a0776762fbf89a34fa1a4db66d67
+    name: testkube-logs
+    type: application
+    urls:
+    - https://github.com/kevinsmeets/testkube-helm-charts/charts/testkube/testkube-2.1.216.tgz/charts/testkube-logs-0.2.2.tgz
+    version: 0.2.2
+  testkube-operator:
+  - apiVersion: v2
+    appVersion: 2.1.140
+    created: "2025-04-14T11:51:18.223973997+02:00"
+    dependencies:
+    - name: global
+      repository: file://../global
+      version: 0.1.3
+    description: A Helm chart for the testkube-operator (installs needed CRDs only
+      for now)
+    digest: f937f9b8037ca6536763d20bccd0c57fa573c29275cf19a4870bc0c84aad9081
+    name: testkube-operator
+    type: application
+    urls:
+    - https://github.com/kevinsmeets/testkube-helm-charts/charts/testkube/testkube-2.1.216.tgz/charts/testkube-operator-2.1.140.tgz
+    version: 2.1.140
+generated: "2025-04-14T11:51:18.202043296+02:00"
