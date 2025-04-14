@@ -3,20 +3,20 @@ entries:
   api-server:
   - apiVersion: v2
     appVersion: 0.11.16
-    created: "2025-04-14T11:51:18.214916766+02:00"
+    created: "2025-04-14T11:58:01.159295441+02:00"
     description: A Helm chart for Api-server
     digest: 8de0b1318a5ec1138e0d57c0a589552cb04ef1308a3b2a3c051b4e341c0976a6
     name: api-server
     type: application
     urls:
-    - https://github.com/kevinsmeets/testkube-helm-charts/charts/testkube/testkube-2.1.216.tgz/charts/api-server-0.11.16.tgz
+    - https://github.com/kevinsmeets/testkube-helm-charts/raw/refs/heads/main/charts/testkube/charts/api-server-0.11.16.tgz
     version: 0.11.16
   common:
   - annotations:
       category: Infrastructure
     apiVersion: v2
     appVersion: 0.1.0
-    created: "2025-04-14T11:51:18.215045648+02:00"
+    created: "2025-04-14T11:58:01.159408004+02:00"
     description: A Library Helm Chart for definitions that can be shared by Helm templates
       in other charts.
     digest: 99b2f69c8d5100575f33522d86a160b243b2fc0c91effc3282ca761e3a00398c
@@ -36,14 +36,14 @@ entries:
     - https://testkube.io/
     type: library
     urls:
-    - https://github.com/kevinsmeets/testkube-helm-charts/charts/testkube/testkube-2.1.216.tgz/charts/common-0.1.0.tgz
+    - https://github.com/kevinsmeets/testkube-helm-charts/raw/refs/heads/main/charts/testkube/charts/common-0.1.0.tgz
     version: 0.1.0
   global:
   - annotations:
       category: Infrastructure
     apiVersion: v2
     appVersion: 0.1.2
-    created: "2025-04-14T11:51:18.21514895+02:00"
+    created: "2025-04-14T11:58:01.159504754+02:00"
     description: A Library Helm Chart for definitions that can be shared by Helm templates
       in other charts.
     digest: 02bfec7b6ca21c83ac8ac1aa237660e7535cdc034528d8ef409b5e21d6f21edf
@@ -63,7 +63,7 @@ entries:
     - https://testkube.io/
     type: library
     urls:
-    - https://github.com/kevinsmeets/testkube-helm-charts/charts/testkube/testkube-2.1.216.tgz/charts/global-0.1.3.tgz
+    - https://github.com/kevinsmeets/testkube-helm-charts/raw/refs/heads/main/charts/testkube/charts/global-0.1.3.tgz
     version: 0.1.3
   mongodb:
   - annotations:
@@ -83,7 +83,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 8.0.6
-    created: "2025-04-14T11:51:18.218786358+02:00"
+    created: "2025-04-14T11:58:01.163404319+02:00"
     dependencies:
     - name: common
       repository: oci://registry-1.docker.io/bitnamicharts
@@ -110,11 +110,11 @@ entries:
     sources:
     - https://github.com/bitnami/charts/tree/main/bitnami/mongodb
     urls:
-    - https://github.com/kevinsmeets/testkube-helm-charts/charts/testkube/testkube-2.1.216.tgz/charts/mongodb-16.5.0.tgz
+    - https://github.com/kevinsmeets/testkube-helm-charts/raw/refs/heads/main/charts/testkube/charts/mongodb-16.5.0.tgz
     version: 16.5.0
   testkube:
   - apiVersion: v2
-    created: "2025-04-14T11:51:18.214592383+02:00"
+    created: "2025-04-14T11:58:01.159010606+02:00"
     dependencies:
     - condition: testkube-operator.enabled
       name: testkube-operator
@@ -144,12 +144,12 @@ entries:
     name: testkube
     type: application
     urls:
-    - https://github.com/kevinsmeets/testkube-helm-charts/charts/testkube/testkube-2.1.216.tgz/testkube-2.1.216.tgz
+    - https://github.com/kevinsmeets/testkube-helm-charts/raw/refs/heads/main/charts/testkube/testkube-2.1.216.tgz
     version: 2.1.216
   testkube-api:
   - apiVersion: v2
     appVersion: 2.1.140
-    created: "2025-04-14T11:51:18.220625245+02:00"
+    created: "2025-04-14T11:58:01.165125812+02:00"
     dependencies:
     - name: global
       repository: file://../global
@@ -159,12 +159,12 @@ entries:
     name: testkube-api
     type: application
     urls:
-    - https://github.com/kevinsmeets/testkube-helm-charts/charts/testkube/testkube-2.1.216.tgz/charts/testkube-api-2.1.140.tgz
+    - https://github.com/kevinsmeets/testkube-helm-charts/raw/refs/heads/main/charts/testkube/charts/testkube-api-2.1.140.tgz
     version: 2.1.140
   testkube-logs:
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2025-04-14T11:51:18.221044037+02:00"
+    created: "2025-04-14T11:58:01.165564605+02:00"
     dependencies:
     - name: global
       repository: file://../global
@@ -174,12 +174,12 @@ entries:
     name: testkube-logs
     type: application
     urls:
-    - https://github.com/kevinsmeets/testkube-helm-charts/charts/testkube/testkube-2.1.216.tgz/charts/testkube-logs-0.2.2.tgz
+    - https://github.com/kevinsmeets/testkube-helm-charts/raw/refs/heads/main/charts/testkube/charts/testkube-logs-0.2.2.tgz
     version: 0.2.2
   testkube-operator:
   - apiVersion: v2
     appVersion: 2.1.140
-    created: "2025-04-14T11:51:18.223973997+02:00"
+    created: "2025-04-14T11:58:01.168350377+02:00"
     dependencies:
     - name: global
       repository: file://../global
@@ -190,6 +190,6 @@ entries:
     name: testkube-operator
     type: application
     urls:
-    - https://github.com/kevinsmeets/testkube-helm-charts/charts/testkube/testkube-2.1.216.tgz/charts/testkube-operator-2.1.140.tgz
+    - https://github.com/kevinsmeets/testkube-helm-charts/raw/refs/heads/main/charts/testkube/charts/testkube-operator-2.1.140.tgz
     version: 2.1.140
-generated: "2025-04-14T11:51:18.202043296+02:00"
+generated: "2025-04-14T11:58:01.147845181+02:00"
